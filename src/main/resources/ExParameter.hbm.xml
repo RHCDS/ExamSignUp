@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExParameter" table="EX_PARAMETER" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="100">
+                <comment>&#178;&#206;&#202;&#253;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="paramvalue" type="string">
+            <column name="PARAMVALUE" length="100">
+                <comment>&#178;&#206;&#202;&#253;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="paramtype" type="string">
+            <column name="PARAMTYPE" length="100">
+                <comment>&#178;&#206;&#202;&#253;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="enumvalue" type="string">
+            <column name="ENUMVALUE" length="100">
+                <comment>&#178;&#206;&#202;&#253;&#195;&#182;&#190;&#217;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="memo" type="string">
+            <column name="MEMO" length="100">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

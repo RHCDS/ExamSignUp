@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExStudent" table="EX_STUDENT" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exInstitution" class="cn.hdu.examsignup.model.ExInstitution" fetch="select">
+            <column name="INSTITUTIONID" length="36">
+                <comment>
+                &#209;&#167;&#201;&#250;&#203;&#249;&#202;&#244;&#187;&#250;&#185;&#185;&#177;&#224;&#194;&#235;(&#209;&#167;&#208;&#163;&#177;&#224;&#194;&#235;)</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exLanguage" class="cn.hdu.examsignup.model.ExLanguage" fetch="select">
+            <column name="LANGUAGEID" length="36">
+                <comment>&#211;&#239;&#214;&#214;&#177;&#224;&#194;&#235;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exProfession" class="cn.hdu.examsignup.model.ExProfession" fetch="select">
+            <column name="PROFESSIONID" length="36">
+                <comment>&#215;&#168;&#210;&#181;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exArrangementByOperatearrangeid" class="cn.hdu.examsignup.model.ExArrangement" fetch="select">
+            <column name="OPERATEARRANGEID" length="36">
+                <comment>&#201;&#207;&#187;&#250;&#191;&#188;&#202;&#212;&#176;&#178;&#197;&#197;&#177;&#237;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exArrangementByTheoryarrangeid" class="cn.hdu.examsignup.model.ExArrangement" fetch="select">
+            <column name="THEORYARRANGEID" length="36">
+                <comment>&#192;&#237;&#194;&#219;&#191;&#188;&#202;&#212;&#176;&#178;&#197;&#197;&#177;&#237;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exCollege" class="cn.hdu.examsignup.model.ExCollege" fetch="select">
+            <column name="COLLEGEID" length="36">
+                <comment>&#209;&#167;&#212;&#186;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exStudentstatus" class="cn.hdu.examsignup.model.ExStudentstatus" fetch="select">
+            <column name="STATUSID" length="36">
+                <comment>&#215;&#180;&#204;&#172;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exCampus" class="cn.hdu.examsignup.model.ExCampus" fetch="select">
+            <column name="CAMPUSID" length="36">
+                <comment>&#208;&#163;&#199;&#248;</comment>
+            </column>
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME">
+                <comment>&#209;&#167;&#201;&#250;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD">
+                <comment>&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="sex" type="string">
+            <column name="SEX" length="2">
+                <comment>&#208;&#212;&#177;&#240; &#196;&#208;M &#197;&#174;F</comment>
+            </column>
+        </property>
+        <property name="studentnum" type="string">
+            <column name="STUDENTNUM" length="50">
+                <comment>&#209;&#167;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="idnum" type="string">
+            <column name="IDNUM" length="18">
+                <comment>&#201;&#237;&#183;&#221;&#214;&#164;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="ethno" type="string">
+            <column name="ETHNO" length="100">
+                <comment>&#195;&#241;&#215;&#229;</comment>
+            </column>
+        </property>
+        <property name="examnum" type="string">
+            <column name="EXAMNUM" length="15">
+                <comment>&#215;&#188;&#191;&#188;&#214;&#164;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="exambatch" type="string">
+            <column name="EXAMBATCH" length="5">
+                <comment>&#191;&#188;&#202;&#212;&#197;&#250;&#180;&#206;121</comment>
+            </column>
+        </property>
+        <property name="grade" type="string">
+            <column name="GRADE" length="15">
+                <comment>&#196;&#234;&#188;&#182;</comment>
+            </column>
+        </property>
+        <property name="classnum" type="string">
+            <column name="CLASSNUM" length="15">
+                <comment>&#208;&#208;&#213;&#254;&#176;&#224;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="lengthofyear" type="string">
+            <column name="LENGTHOFYEAR" length="10">
+                <comment>&#209;&#167;&#214;&#198;</comment>
+            </column>
+        </property>
+        <property name="studentcategory" type="string">
+            <column name="STUDENTCATEGORY" length="10">
+                <comment>&#191;&#188;&#201;&#250;&#192;&#224;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="paied" type="string">
+            <column name="PAIED" length="2">
+                <comment>&#202;&#199;&#183;&#241;&#189;&#201;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="score" type="big_decimal">
+            <column name="SCORE" precision="5">
+                <comment>&#183;&#214;&#202;&#253;</comment>
+            </column>
+        </property>
+         <property name="newscore" type="big_decimal">
+            <column name="NEWSCORE" precision="5">
+                <comment>&#183;&#214;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="theoryabsent" type="string">
+            <column name="THEORYABSENT" length="2">
+                <comment>&#192;&#237;&#194;&#219;&#200;&#177;&#191;&#188;</comment>
+            </column>
+        </property>
+        <property name="operateabsent" type="string">
+            <column name="OPERATEABSENT" length="2">
+                <comment>&#201;&#207;&#187;&#250;&#200;&#177;&#191;&#188;</comment>
+            </column>
+        </property>
+        <property name="theoryfraud" type="string">
+            <column name="THEORYFRAUD" length="2">
+                <comment>&#192;&#237;&#194;&#219;&#215;&#247;&#177;&#215;</comment>
+            </column>
+        </property>
+        <property name="operatefraud" type="string">
+            <column name="OPERATEFRAUD" length="2">
+                <comment>&#201;&#207;&#187;&#250;&#215;&#247;&#177;&#215;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="400">
+            </column>
+        </property>
+        <property name="operateseat" type="java.lang.Integer">
+            <column name="OPERATESEAT" length="3">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

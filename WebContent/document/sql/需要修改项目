@@ -1,0 +1,9 @@
+1.为子菜单排序而修改：ExMainmenu.hbm.xml
+	 <set name="exMainmenus" table="EX_MAINMENU" inverse="true" lazy="true" fetch="select" order-by="sortindex">
+	 
+2.修改每个model.hbm.xml id的generator class为uuid.hex
+         <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+	 

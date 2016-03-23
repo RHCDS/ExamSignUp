@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExCollege" table="EX_COLLEGE" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exInstitution" class="cn.hdu.examsignup.model.ExInstitution" fetch="select">
+            <column name="INSTITUTIONID" length="36">
+                <comment>&#208;&#163;&#199;&#248;&#203;&#249;&#202;&#244;&#187;&#250;&#185;&#185;ID(&#209;&#167;&#208;&#163;ID)</comment>
+            </column>
+        </many-to-one>
+        <property name="collegenum" type="string">
+            <column name="COLLEGENUM" length="10">
+                <comment>&#212;&#186;&#207;&#181;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME">
+                <comment>&#212;&#186;&#207;&#181;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <set name="exStudents" table="EX_STUDENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COLLEGEID" length="36">
+                    <comment>&#209;&#167;&#212;&#186;</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExStudent" />
+        </set>
+    </class>
+</hibernate-mapping>

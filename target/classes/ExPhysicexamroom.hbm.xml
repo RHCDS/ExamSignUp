@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExPhysicexamroom" table="EX_PHYSICEXAMROOM" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exInstitution" class="cn.hdu.examsignup.model.ExInstitution" fetch="select">
+            <column name="INSTITUTIONID" length="36">
+                <comment>&#187;&#250;&#185;&#185;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exCampus" class="cn.hdu.examsignup.model.ExCampus" fetch="select">
+            <column name="CAMPUSID" length="36">
+                <comment>&#189;&#204;&#202;&#210;&#203;&#249;&#212;&#218;&#208;&#163;&#199;&#248;</comment>
+            </column>
+        </many-to-one>
+        <property name="roomlocation" type="string">
+            <column name="ROOMLOCATION">
+                <comment>&#206;&#239;&#192;&#237;&#191;&#188;&#179;&#161;</comment>
+            </column>
+        </property>
+        <property name="capacity" type="java.lang.Integer">
+            <column name="CAPACITY">
+                <comment>&#191;&#188;&#179;&#161;&#200;&#221;&#193;&#191;(&#200;&#203;)</comment>
+            </column>
+        </property>
+        <property name="theoryflag" type="string">
+            <column name="THEORYFLAG" length="2">
+                <comment>&#192;&#237;&#194;&#219;&#191;&#188;&#177;&#234;&#188;&#199;</comment>
+            </column>
+        </property>
+        <property name="operateflag" type="string">
+            <column name="OPERATEFLAG" length="2">
+                <comment>&#201;&#207;&#187;&#250;&#191;&#188;&#177;&#234;&#188;&#199;</comment>
+            </column>
+        </property>
+        <set name="exArrangements" table="EX_ARRANGEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PHYSICEXAMROOMID" length="36">
+                    <comment>&#206;&#239;&#192;&#237;&#191;&#188;&#179;&#161;id</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExArrangement" />
+        </set>
+    </class>
+</hibernate-mapping>

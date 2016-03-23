@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExUser" table="EX_USER" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exRole" class="cn.hdu.examsignup.model.ExRole" fetch="select">
+            <column name="ROLEID" length="36">
+                <comment>&#189;&#199;&#201;&#171;ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exInstitution" class="cn.hdu.examsignup.model.ExInstitution" fetch="select">
+            <column name="INSTITUTIONID" length="36">
+                <comment>&#203;&#249;&#202;&#244;&#187;&#250;&#185;&#185;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="loginname" type="string">
+            <column name="LOGINNAME" unique="true">
+                <comment>&#181;&#199;&#194;&#188;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD">
+                <comment>&#181;&#199;&#194;&#188;&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME">
+                <comment>&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="contactnum" type="string">
+            <column name="CONTACTNUM">
+                <comment>&#193;&#170;&#207;&#181;&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

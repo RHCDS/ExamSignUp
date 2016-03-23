@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExStudentstatus" table="EX_STUDENTSTATUS" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exInstitution" class="cn.hdu.examsignup.model.ExInstitution" fetch="select">
+            <column name="INSTITUTIONID" length="36">
+                <comment>
+                &#187;&#250;&#185;&#185;ID&#178;&#187;&#205;&#172;&#209;&#167;&#208;&#163;&#191;&#201;&#196;&#220;&#198;&#240;&#214;&#185;&#202;&#177;&#188;&#228;&#178;&#187;&#205;&#172;</comment>
+            </column>
+        </many-to-one>
+        <property name="statusnum" type="java.lang.Integer">
+            <column name="STATUSNUM">
+                <comment>&#215;&#180;&#204;&#172;&#177;&#224;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME">
+                <comment>&#215;&#180;&#204;&#172;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="starttime" type="timestamp">
+            <column name="STARTTIME" length="19">
+                <comment>&#215;&#180;&#204;&#172;&#198;&#240;&#202;&#188;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="endtime" type="timestamp">
+            <column name="ENDTIME" length="19">
+                <comment>&#215;&#180;&#204;&#172;&#189;&#225;&#202;&#248;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="remarks" type="string">
+            <column name="REMARKS" length="65535">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <set name="exStudents" table="EX_STUDENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="STATUSID" length="36">
+                    <comment>&#215;&#180;&#204;&#172;&#180;&#250;&#194;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExStudent" />
+        </set>
+    </class>
+</hibernate-mapping>

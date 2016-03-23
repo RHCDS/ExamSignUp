@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExMainmenu" table="EX_MAINMENU" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exRole" class="cn.hdu.examsignup.model.ExRole" fetch="select">
+            <column name="ROLEID" length="36">
+                <comment>&#189;&#199;&#201;&#171;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exMainmenu" class="cn.hdu.examsignup.model.ExMainmenu" fetch="select">
+            <column name="MAINMENUID" length="36">
+                <comment>&#184;&#184;&#178;&#203;&#181;&#165;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="menuid" type="string">
+            <column name="MENUID" length="40" not-null="true" unique="true">
+                <comment>&#178;&#203;&#181;&#165;ID</comment>
+            </column>
+        </property>
+        <property name="showname" type="string">
+            <column name="SHOWNAME" length="100">
+                <comment>&#178;&#203;&#181;&#165;&#207;&#212;&#202;&#190;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="onclickscript" type="string">
+            <column name="ONCLICKSCRIPT" length="1000">
+                <comment>&#181;&#165;&#187;&#247;&#189;&#197;&#177;&#190;</comment>
+            </column>
+        </property>
+        <property name="sortindex" type="java.lang.Integer">
+            <column name="SORTINDEX">
+                <comment>&#197;&#197;&#208;&#242;&#203;&#247;&#210;&#253;</comment>
+            </column>
+        </property>
+        <set name="exMainmenus" table="EX_MAINMENU" inverse="true" lazy="true" fetch="select" order-by="sortindex">
+            <key>
+                <column name="MAINMENUID" length="36">
+                    <comment>&#184;&#184;&#178;&#203;&#181;&#165;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExMainmenu" />
+        </set>
+    </class>
+</hibernate-mapping>

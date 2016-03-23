@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExArrangeSupervisor" table="EX_ARRANGE_SUPERVISOR" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exSupervisor" class="cn.hdu.examsignup.model.ExSupervisor" fetch="select">
+            <column name="SUPERVISORID" length="36">
+            </column>
+        </many-to-one>
+        <many-to-one name="exArrangement" class="cn.hdu.examsignup.model.ExArrangement" fetch="select">
+            <column name="ARRANGEMENTID" length="36">
+            </column>
+        </many-to-one>
+        <property name="logicExamroomNum" type="string">
+            <column name="LOGICEXAMROOMNUM" length="36">
+            </column>
+        </property>
+        <many-to-one name="exInstitution" class="cn.hdu.examsignup.model.ExInstitution" fetch="select">
+            <column name="INSTITUTIONID" length="36">
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

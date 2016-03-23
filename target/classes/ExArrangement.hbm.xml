@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExArrangement" table="EX_ARRANGEMENT" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <many-to-one name="exInstitution" class="cn.hdu.examsignup.model.ExInstitution" fetch="select">
+            <column name="INSTITUTIONID" length="36">
+                <comment>&#187;&#250;&#185;&#185;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exLanguage" class="cn.hdu.examsignup.model.ExLanguage" fetch="select">
+            <column name="LANGUAGEID" length="36">
+                <comment>&#211;&#239;&#214;&#214;ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exSection" class="cn.hdu.examsignup.model.ExSection" fetch="select">
+            <column name="SECTIONID" length="36">
+                <comment>&#179;&#161;&#180;&#206;ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="exPhysicexamroom" class="cn.hdu.examsignup.model.ExPhysicexamroom" fetch="select">
+            <column name="PHYSICEXAMROOMID" length="36">
+                <comment>&#206;&#239;&#192;&#237;&#191;&#188;&#179;&#161;id</comment>
+            </column>
+        </many-to-one>
+        <property name="startexamnum" type="string">
+            <column name="STARTEXAMNUM" length="15">
+                <comment>&#198;&#240;&#202;&#188;&#215;&#188;&#191;&#188;&#214;&#164;&#186;&#197; GROUP BY EXAMNUM</comment>
+            </column>
+        </property>
+        <property name="endexamnum" type="string">
+            <column name="ENDEXAMNUM" length="15">
+                <comment>&#214;&#213;&#214;&#185;&#215;&#188;&#191;&#188;&#214;&#164;&#186;&#197;</comment>
+            </column>
+        </property>
+        <set name="exStudentsForTheoryarrangeid" table="EX_STUDENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="THEORYARRANGEID" length="36">
+                    <comment>&#192;&#237;&#194;&#219;&#191;&#188;&#202;&#212;&#176;&#178;&#197;&#197;&#177;&#237;</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExStudent" />
+        </set>
+        <set name="exStudentsForOperatearrangeid" table="EX_STUDENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OPERATEARRANGEID" length="36">
+                    <comment>&#201;&#207;&#187;&#250;&#191;&#188;&#202;&#212;&#176;&#178;&#197;&#197;&#177;&#237;</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExStudent" />
+        </set>
+         <set name="exArrangeSupervisors" table="EX_ARRANGE_SUPERVISOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ARRANGEMENTID" length="36">
+                    <comment>&#187;&#250;&#185;&#185;&#180;&#250;&#194;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExArrangeSupervisor" />
+        </set>
+    </class>
+</hibernate-mapping>

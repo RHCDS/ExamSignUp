@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-3-26 19:37:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hdu.examsignup.model.ExRole" table="EX_ROLE" catalog="EXAMSIGNUP">
+        <id name="id" type="string">
+            <column name="ID" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <property name="rolenum" type="java.lang.Integer">
+            <column name="ROLENUM">
+                <comment>
+                &#189;&#199;&#201;&#171;&#177;&#224;&#186;&#197;,&#189;&#199;&#201;&#171;&#177;&#224;&#186;&#197;0&#206;&#170;&#215;&#238;&#184;&#223;&#200;&#168;&#207;&#222;&#163;&#172;&#184;&#223;&#200;&#168;&#207;&#222;&#213;&#223;&#211;&#181;&#211;&#208;&#191;&#216;&#214;&#198;&#181;&#205;&#200;&#168;&#207;&#222;&#213;&#223;&#181;&#196;&#200;&#168;&#192;&#251;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME">
+                <comment>&#189;&#199;&#201;&#171;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <set name="exMainmenus" table="EX_MAINMENU" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROLEID" length="36">
+                    <comment>&#189;&#199;&#201;&#171;</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExMainmenu" />
+        </set>
+        <set name="exUsers" table="EX_USER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROLEID" length="36">
+                    <comment>&#189;&#199;&#201;&#171;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="cn.hdu.examsignup.model.ExUser" />
+        </set>
+    </class>
+</hibernate-mapping>
